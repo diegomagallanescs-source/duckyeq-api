@@ -10,4 +10,15 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\DuckyEQ.Contracts\DuckyEQ.Contracts.csproj" />
+    <ProjectReference Include="..\DuckyEQ.Infrastructure\DuckyEQ.Infrastructure.csproj" />
+    <ProjectReference Include="..\DuckyEQ.Services\DuckyEQ.Services.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Middleware\" />
+    <Folder Include="Extensions\" />
+  </ItemGroup>
+
 </Project>
