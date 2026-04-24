@@ -1,6 +1,6 @@
 ﻿namespace DuckyEQ.Domain.Enums;
 
-public enum LessonFormat
+public enum LessonEngageFormat
 {
     ScenarioChallenge,
     QuickQuiz,
