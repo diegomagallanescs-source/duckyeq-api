@@ -7,13 +7,13 @@ public class DailyCheckIn
     public Guid Id { get; private set; }
     public Guid UserId { get; private set; }
     public DateOnly CheckInDate { get; private set; }
-    public List<Emotion> EmotionIds { get; private set; } = null!;
+    public Emotion EmotionId { get; private set; }
     public string? Phrase { get; private set; }        // null = intentionally not shared
     public DateTime CreatedAt { get; private set; }
 
     private DailyCheckIn() { }
 
-    public static DailyCheckIn Create(Guid userId, DateOnly checkinDate, List<Emotion> emotionIds, string? phrase)
+    public static DailyCheckIn Create(Guid userId, DateOnly checkinDate, Emotion emotion, string? phrase)
     {
         // Empty string rejected — converted to null
         var cleanPhrase = string.IsNullOrWhiteSpace(phrase) ? null : phrase.Trim();
@@ -23,7 +23,7 @@ public class DailyCheckIn
             Id = Guid.NewGuid(),
             UserId = userId,
             CheckInDate = checkinDate,
-            EmotionIds = emotionIds,
+            EmotionId = emotion,
             Phrase = cleanPhrase,
             CreatedAt = DateTime.UtcNow
         };
