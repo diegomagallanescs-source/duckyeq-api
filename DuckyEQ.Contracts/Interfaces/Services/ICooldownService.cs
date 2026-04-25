@@ -9,10 +9,11 @@ using DuckyEQ.Contracts.Models;
 
 namespace DuckyEQ.Contracts.Interfaces.Services
 {
-    internal interface ICooldownService
+    public interface ICooldownService
     {
         Task<CooldownStatus> GetPillarStatusAsync(Guid userId, Pillar pillar);
         Task<bool> CanStartNewLessonAsync(Guid userId, Pillar pillar);
 
     }
 }
+

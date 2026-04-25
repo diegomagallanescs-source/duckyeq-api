@@ -9,7 +9,7 @@ using DuckyEQ.Domain.Enums;
 
 namespace DuckyEQ.Contracts.Interfaces.Services
 {
-    internal interface ILessonService
+    public interface ILessonService
     {
         // Auto-creates missing PillarProgress rows on first call
         Task<IReadOnlyList<PillarProgressDto>> GetAllPillarProgressAsync(Guid userId);
@@ -29,3 +29,4 @@ namespace DuckyEQ.Contracts.Interfaces.Services
 
     }
 }
+

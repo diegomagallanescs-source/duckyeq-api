@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DuckyEQ.Contracts.Interfaces.Repositories
 {
-    internal interface IGratitudeRepository
+    public interface IGratitudeRepository
     {
         Task<GratitudeEntry> CreateAsync(GratitudeEntry entry);
         Task<IReadOnlyList<GratitudeEntry>> GetByUserPagedAsync(
@@ -19,3 +19,4 @@ namespace DuckyEQ.Contracts.Interfaces.Repositories
 
     }
 }
+

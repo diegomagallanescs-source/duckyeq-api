@@ -7,7 +7,7 @@ using DuckyEQ.Domain.Entities;
 
 namespace DuckyEQ.Contracts.Interfaces.Repositories
 {
-    internal interface IUserRepository
+    public interface IUserRepository
     {
         Task<User?> GetByIdAsync(Guid id);
         Task<User?> GetByEmailAsync(string email);
@@ -19,3 +19,4 @@ namespace DuckyEQ.Contracts.Interfaces.Repositories
 
     }
 }
+

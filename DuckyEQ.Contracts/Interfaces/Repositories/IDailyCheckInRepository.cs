@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DuckyEQ.Contracts.Interfaces.Repositories
 {
-    internal interface IDailyCheckInRepository
+    public interface IDailyCheckInRepository
     {
         // Returns null if user has not checked in today — signals 204 No Content at API layer
         Task<DailyCheckIn?> GetTodayAsync(Guid userId);
@@ -15,3 +15,4 @@ namespace DuckyEQ.Contracts.Interfaces.Repositories
 
     }
 }
+

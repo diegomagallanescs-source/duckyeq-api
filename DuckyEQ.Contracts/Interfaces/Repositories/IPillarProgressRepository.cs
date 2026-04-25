@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DuckyEQ.Contracts.Interfaces.Repositories
 {
-    internal interface IPillarProgressRepository
+    public interface IPillarProgressRepository
     {
         Task<PillarProgress?> GetByUserAndPillarAsync(Guid userId, Pillar pillar);
         Task<IReadOnlyList<PillarProgress>> GetAllByUserAsync(Guid userId);
@@ -18,3 +18,4 @@ namespace DuckyEQ.Contracts.Interfaces.Repositories
 
     }
 }
+

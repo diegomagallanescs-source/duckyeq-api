@@ -8,7 +8,7 @@ using DuckyEQ.Contracts.Models;
 
 namespace DuckyEQ.Contracts.Interfaces.Services
 {
-    internal interface IGratitudeService
+    public interface IGratitudeService
     {
         // Awards 10 coins on first entry of the day only
         Task<GratitudeResponse> AddEntryAsync(Guid userId, AddGratitudeRequest request);
@@ -23,3 +23,4 @@ namespace DuckyEQ.Contracts.Interfaces.Services
 
     }
 }
+

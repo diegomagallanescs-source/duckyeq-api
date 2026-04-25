@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DuckyEQ.Contracts.Interfaces.Services
 {
-    internal interface IEQTestScoringService
+    public interface IEQTestScoringService
     {
         // score = correctAnswers * 10  (15 questions max = 150 max score)
         int CalculateScore(int correctAnswers);
@@ -16,3 +16,4 @@ namespace DuckyEQ.Contracts.Interfaces.Services
 
     }
 }
+

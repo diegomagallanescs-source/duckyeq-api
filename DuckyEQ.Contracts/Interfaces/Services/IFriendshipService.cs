@@ -7,7 +7,7 @@ using DuckyEQ.Contracts.DTOs;
 
 namespace DuckyEQ.Contracts.Interfaces.Services
 {
-    internal interface IFriendshipService
+    public interface IFriendshipService
     {
         // Looks up target by username. Throws if already friends or request exists.
         Task<FriendshipDto> SendRequestAsync(Guid requesterId, string targetUsername);
@@ -28,3 +28,4 @@ namespace DuckyEQ.Contracts.Interfaces.Services
 
     }
 }
+

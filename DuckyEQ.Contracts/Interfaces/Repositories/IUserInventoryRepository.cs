@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace DuckyEQ.Contracts.Interfaces.Repositories
 {
-    internal interface IUserInventoryRepository
+    public interface IUserInventoryRepository
     {
         Task<IReadOnlyList<UserInventory>> GetByUserAsync(Guid userId);
         Task<UserInventory?> GetByUserAndItemAsync(Guid userId, Guid shopItemId);
@@ -21,3 +21,4 @@ namespace DuckyEQ.Contracts.Interfaces.Repositories
 
     }
 }
+

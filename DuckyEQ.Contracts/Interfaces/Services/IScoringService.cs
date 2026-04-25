@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DuckyEQ.Contracts.Interfaces.Services
 {
-    internal interface IScoringService
+    public interface IScoringService
     {
         // score = round(correctAnswers / totalQuestions * 300), clamped 0–300
         int CalculateScore(int correctAnswers, int totalQuestions);
@@ -19,3 +19,4 @@ namespace DuckyEQ.Contracts.Interfaces.Services
 
     }
 }
+

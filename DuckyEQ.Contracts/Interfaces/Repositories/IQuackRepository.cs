@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DuckyEQ.Contracts.Interfaces.Repositories
 {
-    internal interface IQuackRepository
+    public interface IQuackRepository
     {
         Task<Quack> CreateAsync(Quack quack);
 
@@ -24,3 +24,4 @@ namespace DuckyEQ.Contracts.Interfaces.Repositories
 
     }
 }
+

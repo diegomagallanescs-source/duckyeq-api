@@ -8,7 +8,7 @@ using DuckyEQ.Contracts.Models;
 
 namespace DuckyEQ.Contracts.Interfaces.Services
 {
-    internal interface ISessionService
+    public interface ISessionService
     {
         // Creates a GUID token stored in IMemoryCache with 30-minute TTL
         // Throws if userId already has an active session for this lesson
@@ -22,3 +22,4 @@ namespace DuckyEQ.Contracts.Interfaces.Services
 
     }
 }
+

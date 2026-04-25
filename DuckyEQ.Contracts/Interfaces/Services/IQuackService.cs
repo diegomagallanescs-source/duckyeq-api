@@ -8,7 +8,7 @@ using DuckyEQ.Contracts.Models;
 
 namespace DuckyEQ.Contracts.Interfaces.Services
 {
-    internal interface IQuackService
+    public interface IQuackService
     {
         // Throws QuackLimitExceededException (→ 429) if already sent today
         // Throws NotFriendsException (→ 403) if sender and recipient aren't friends
@@ -22,3 +22,4 @@ namespace DuckyEQ.Contracts.Interfaces.Services
 
     }
 }
+

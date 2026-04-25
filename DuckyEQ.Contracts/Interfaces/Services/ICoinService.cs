@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DuckyEQ.Contracts.Interfaces.Services
 {
-    internal interface ICoinService
+    public interface ICoinService
     {
         Task<int> GetBalanceAsync(Guid userId);
         Task AwardAsync(Guid userId, int amount);
@@ -16,3 +16,4 @@ namespace DuckyEQ.Contracts.Interfaces.Services
 
     }
 }
+

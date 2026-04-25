@@ -12,8 +12,8 @@ namespace DuckyEQ.Contracts.DTOs
         string Name,
         ShopCategory Category,
         int CoinPrice,
-        string? QuackImageUrl,
-        string? LolaImageUrl,
+        string? DuckyImageUrl,
+        string? DaisyImageUrl,
         bool IsOwned,
         bool IsEquipped,
         string? Rarity,
@@ -21,3 +21,4 @@ namespace DuckyEQ.Contracts.DTOs
     );
 
 }
+

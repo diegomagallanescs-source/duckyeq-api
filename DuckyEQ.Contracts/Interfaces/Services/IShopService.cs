@@ -8,7 +8,7 @@ using DuckyEQ.Contracts.Models;
 
 namespace DuckyEQ.Contracts.Interfaces.Services
 {
-    internal interface IShopService
+    public interface IShopService
     {
         Task<IReadOnlyList<ShopItemDto>> GetActiveItemsAsync();
 
@@ -25,3 +25,4 @@ namespace DuckyEQ.Contracts.Interfaces.Services
 
     }
 }
+

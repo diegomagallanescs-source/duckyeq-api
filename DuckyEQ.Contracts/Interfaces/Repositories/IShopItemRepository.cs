@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DuckyEQ.Contracts.Interfaces.Repositories
 {
-    internal interface IShopItemRepository
+    public interface IShopItemRepository
     {
         Task<IReadOnlyList<ShopItem>> GetActiveItemsAsync();
         Task<IReadOnlyList<ShopItem>> GetWeeklyItemsForCurrentWeekAsync();
@@ -16,3 +16,4 @@ namespace DuckyEQ.Contracts.Interfaces.Repositories
 
     }
 }
+

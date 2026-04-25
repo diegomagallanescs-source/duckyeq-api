@@ -8,7 +8,7 @@ using DuckyEQ.Contracts.Models;
 
 namespace DuckyEQ.Contracts.Interfaces.Services
 {
-    internal interface ICheckInService
+    public interface ICheckInService
     {
         // Returns null if user has not checked in today (controller → 204)
         Task<CheckInDto?> GetTodayAsync(Guid userId);
@@ -18,3 +18,4 @@ namespace DuckyEQ.Contracts.Interfaces.Services
 
     }
 }
+

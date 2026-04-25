@@ -7,10 +7,11 @@ using System.Threading.Tasks;
 
 namespace DuckyEQ.Contracts.Interfaces.Repositories
 {
-    internal interface IUserEQTestResultRepository
+    public interface IUserEQTestResultRepository
     {
         Task<UserEQTestResult> CreateAsync(UserEQTestResult result);
         Task<UserEQTestResult?> GetBestByUserAsync(Guid userId);
 
     }
 }
+

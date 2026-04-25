@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DuckyEQ.Contracts.Interfaces.Repositories
 {
-    internal interface ICoinRepository
+    public interface ICoinRepository
     {
         Task<QuackCoins?> GetByUserAsync(Guid userId);
         Task<QuackCoins> EnsureExistsAsync(Guid userId);
@@ -16,3 +16,4 @@ namespace DuckyEQ.Contracts.Interfaces.Repositories
 
     }
 }
+

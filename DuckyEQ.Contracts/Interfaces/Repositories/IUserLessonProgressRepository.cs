@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DuckyEQ.Contracts.Interfaces.Repositories
 {
-    internal interface IUserLessonProgressRepository
+    public interface IUserLessonProgressRepository
     {
         Task<UserLessonProgress?> GetByUserAndLessonAsync(Guid userId, Guid lessonId);
         Task<IReadOnlyList<UserLessonProgress>> GetByUserAndPillarAsync(
@@ -18,3 +18,4 @@ namespace DuckyEQ.Contracts.Interfaces.Repositories
 
     }
 }
+

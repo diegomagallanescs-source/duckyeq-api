@@ -8,7 +8,7 @@ using DuckyEQ.Contracts.Models;
 
 namespace DuckyEQ.Contracts.Interfaces.Services
 {
-    internal interface IAuthService
+    public interface IAuthService
     {
         Task<AuthResult> RegisterAsync(RegisterRequest request);
         Task<AuthResult> LoginAsync(LoginRequest request);
@@ -18,3 +18,4 @@ namespace DuckyEQ.Contracts.Interfaces.Services
 
     }
 }
+

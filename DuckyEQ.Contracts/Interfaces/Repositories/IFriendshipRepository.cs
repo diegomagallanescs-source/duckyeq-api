@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace DuckyEQ.Contracts.Interfaces.Repositories
 {
-    internal interface IFriendshipRepository
+    public interface IFriendshipRepository
     {
         Task<Friendship> CreateAsync(Friendship friendship);
 
@@ -32,3 +32,4 @@ namespace DuckyEQ.Contracts.Interfaces.Repositories
 
     }
 }
+

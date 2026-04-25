@@ -8,7 +8,7 @@ using DuckyEQ.Contracts.Models;
 
 namespace DuckyEQ.Contracts.Interfaces.Services
 {
-    internal interface IEQTestService
+    public interface IEQTestService
     {
         // Returns 15 random questions — CorrectOption stripped from DTO
         Task<IReadOnlyList<EQTestQuestionDto>> GetQuestionsAsync();
@@ -22,3 +22,4 @@ namespace DuckyEQ.Contracts.Interfaces.Services
 
     }
 }
+
