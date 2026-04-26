@@ -13,7 +13,17 @@
       "Bash(curl -s -w '\\\\nHTTP %{http_code}' -X POST http://localhost:5115/api/auth/login -H 'Content-Type: application/json' -d '{\"email\":\"test@duckyeq.com\",\"password\":\"wrongpass\"}')",
       "Bash(curl -s -w \"\\\\nHTTP %{http_code}\" http://localhost:5115/api/user/profile)",
       "Bash(pkill -f \"dotnet run\")",
-      "PowerShell(Stop-Process -Force)"
+      "PowerShell(Stop-Process -Force)",
+      "Bash(curl -s http://localhost:5115/swagger/index.html)",
+      "Bash(curl -s -X POST http://localhost:5115/api/auth/register -H 'Content-Type: application/json' -d '{\"email\":\"test@duckyeq.com\",\"password\":\"Test1234!\",\"duckCharacter\":0,\"knownAs\":\"Tester\"}')",
+      "Bash(python -m json.tool)",
+      "Bash(curl -s -X POST http://localhost:5115/api/auth/login -H 'Content-Type: application/json' -d '{\"email\":\"test@duckyeq.com\",\"password\":\"Test1234!\"}')",
+      "Bash(curl -s -X POST http://localhost:5115/api/auth/register -H 'Content-Type: application/json' -d '{\"email\":\"day9test@duckyeq.com\",\"password\":\"Test1234!\",\"duckCharacter\":0,\"knownAs\":\"Day9\"}')",
+      "Bash(curl -s http://localhost:5115/api/pillars/progress -H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6ImM4ZWRjZDkzLTFmODktNGFiYS1iOTU5LTI4ZDYwY2YwMTE4MSIsInVzZXJuYW1lIjoiRmx1ZmZ5QmVhazQ0MTAiLCJrbm93bkFzIjoiRGF5OSIsImV4cCI6MTc3OTc5NjcxMCwiaXNzIjoiYXBpLmR1Y2t5ZXEuY29tIiwiYXVkIjoiZHVja3llcS5jb20ifQ.CpssuLN2C21uCVp1Ggk-gxWSFFnLtxY_28RuaXoLcBQ')",
+      "Bash(curl -s http://localhost:5115/api/pillars/1/lessons -H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6ImM4ZWRjZDkzLTFmODktNGFiYS1iOTU5LTI4ZDYwY2YwMTE4MSIsInVzZXJuYW1lIjoiRmx1ZmZ5QmVhazQ0MTAiLCJrbm93bkFzIjoiRGF5OSIsImV4cCI6MTc3OTc5NjcxMCwiaXNzIjoiYXBpLmR1Y2t5ZXEuY29tIiwiYXVkIjoiZHVja3llcS5jb20ifQ.CpssuLN2C21uCVp1Ggk-gxWSFFnLtxY_28RuaXoLcBQ')",
+      "Bash(curl -s http://localhost:5115/api/coins/balance -H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6ImM4ZWRjZDkzLTFmODktNGFiYS1iOTU5LTI4ZDYwY2YwMTE4MSIsInVzZXJuYW1lIjoiRmx1ZmZ5QmVhazQ0MTAiLCJrbm93bkFzIjoiRGF5OSIsImV4cCI6MTc3OTc5NjcxMCwiaXNzIjoiYXBpLmR1Y2t5ZXEuY29tIiwiYXVkIjoiZHVja3llcS5jb20ifQ.CpssuLN2C21uCVp1Ggk-gxWSFFnLtxY_28RuaXoLcBQ')",
+      "Bash(sqlcmd -S '\\(localdb\\)\\\\mssqllocaldb' -d DuckyEQ -Q ' *)",
+      "Bash(curl -s -X POST http://localhost:5115/api/lessons/aaaaaaaa-0000-0000-0000-000000000001/complete -H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6ImM4ZWRjZDkzLTFmODktNGFiYS1iOTU5LTI4ZDYwY2YwMTE4MSIsInVzZXJuYW1lIjoiRmx1ZmZ5QmVhazQ0MTAiLCJrbm93bkFzIjoiRGF5OSIsImV4cCI6MTc3OTc5NjcxMCwiaXNzIjoiYXBpLmR1Y2t5ZXEuY29tIiwiYXVkIjoiZHVja3llcS5jb20ifQ.CpssuLN2C21uCVp1Ggk-gxWSFFnLtxY_28RuaXoLcBQ' -H 'Content-Type: application/json' -d '{\"sessionToken\":\"29691ff9-b8f9-4716-b2f9-e8547bdbcbb2\",\"correctAnswers\":8,\"totalQuestions\":10}')"
     ]
   }
 }
