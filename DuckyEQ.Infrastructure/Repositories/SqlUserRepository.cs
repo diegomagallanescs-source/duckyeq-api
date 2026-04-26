@@ -1,5 +1,6 @@
 using DuckyEQ.Contracts.Interfaces.Repositories;
 using DuckyEQ.Domain.Entities;
+using DuckyEQ.Domain.Enums;
 using DuckyEQ.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 
@@ -40,5 +41,12 @@ public class SqlUserRepository : IUserRepository
         await _db.Users
             .Where(u => u.Id == userId)
             .ExecuteUpdateAsync(s => s.SetProperty(u => u.KnownAs, knownAs));
+    }
+
+    public async Task UpdateDuckCharacterAsync(Guid userId, DuckCharacter character)
+    {
+        await _db.Users
+            .Where(u => u.Id == userId)
+            .ExecuteUpdateAsync(s => s.SetProperty(u => u.DuckCharacter, character));
     }
 }

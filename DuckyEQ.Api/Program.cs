@@ -1,4 +1,5 @@
 using System.Text;
+using DuckyEQ.Api.Validators;
 using DuckyEQ.Contracts.Interfaces.Repositories;
 using DuckyEQ.Contracts.Interfaces.Services;
 using DuckyEQ.Infrastructure.Data;
@@ -6,6 +7,8 @@ using DuckyEQ.Infrastructure.Repositories;
 using DuckyEQ.Services.Behaviors;
 using DuckyEQ.Services.Services;
 using DuckyEQ.Services.Utilities;
+using FluentValidation;
+using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
@@ -79,6 +82,10 @@ namespace DuckyEQ
             builder.Services.AddScoped<FriendsBehavior>();
             builder.Services.AddScoped<QuackBehavior>();
             builder.Services.AddScoped<LessonBehavior>();
+
+            // ── Validation ────────────────────────────────────────────────
+            builder.Services.AddFluentValidationAutoValidation();
+            builder.Services.AddValidatorsFromAssemblyContaining<RegisterRequestValidator>();
 
             // ── API ───────────────────────────────────────────────────────
             builder.Services.AddControllers();

@@ -1,6 +1,7 @@
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
+using DuckyEQ.Contracts.DTOs;
 using DuckyEQ.Contracts.Interfaces.Repositories;
 using DuckyEQ.Contracts.Interfaces.Services;
 using DuckyEQ.Contracts.Models;
@@ -16,17 +17,20 @@ namespace DuckyEQ.Services.Services;
 public class AuthService : IAuthService
 {
     private readonly IUserRepository _userRepo;
+    private readonly IUserInventoryRepository _inventoryRepo;
     private readonly IUsernameGenerator _usernameGenerator;
     private readonly IMemoryCache _cache;
     private readonly IConfiguration _config;
 
     public AuthService(
         IUserRepository userRepo,
+        IUserInventoryRepository inventoryRepo,
         IUsernameGenerator usernameGenerator,
         IMemoryCache cache,
         IConfiguration config)
     {
         _userRepo = userRepo;
+        _inventoryRepo = inventoryRepo;
         _usernameGenerator = usernameGenerator;
         _cache = cache;
         _config = config;
@@ -71,6 +75,27 @@ public class AuthService : IAuthService
         await _userRepo.UpdateAsync(user);
         _cache.Remove($"verify:{token}");
         return true;
+    }
+
+    public async Task<UserProfileDto> GetProfileAsync(Guid userId)
+    {
+        var user = await _userRepo.GetByIdAsync(userId)
+            ?? throw new NotFoundException("User not found.");
+        var equippedItems = await _inventoryRepo.GetEquippedItemsAsync(userId);
+        return new UserProfileDto(
+            user.Username,
+            user.KnownAs,
+            user.DuckCharacter,
+            user.OverallXP,
+            user.OverallLevel,
+            user.StreakDays,
+            user.EmailVerified,
+            equippedItems);
+    }
+
+    public async Task UpdateDuckCharacterAsync(Guid userId, DuckCharacter character)
+    {
+        await _userRepo.UpdateDuckCharacterAsync(userId, character);
     }
 
     public async Task<AuthResult> UpdateKnownAsAsync(Guid userId, string knownAs)

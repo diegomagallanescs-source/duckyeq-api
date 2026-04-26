@@ -38,5 +38,6 @@ public class User
     }
 
     public void UpdateKnownAs(string knownAs) => KnownAs = knownAs;
+    public void UpdateDuckCharacter(DuckCharacter character) => DuckCharacter = character;
     public void VerifyEmail() => EmailVerified = true;
 }

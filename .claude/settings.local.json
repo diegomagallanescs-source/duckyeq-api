@@ -3,7 +3,17 @@
     "allow": [
       "Bash(dotnet add *)",
       "Bash(dotnet build *)",
-      "Bash(git add *)"
+      "Bash(git add *)",
+      "Bash(dotnet run *)",
+      "Bash(curl -s http://localhost:5000/swagger/index.html)",
+      "Bash(curl -s https://localhost:7000/swagger/index.html)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:5115/swagger/index.html)",
+      "Bash(curl -s -w '\\\\nHTTP %{http_code}' -X POST http://localhost:5115/api/auth/register -H 'Content-Type: application/json' -d '{\"email\":\"test@duckyeq.com\",\"password\":\"Password1\",\"duckCharacter\":0,\"knownAs\":\"Tester\"}')",
+      "Bash(curl -s -w '\\\\nHTTP %{http_code}' -X POST http://localhost:5115/api/auth/register -H 'Content-Type: application/json' -d '{\"email\":\"notanemail\",\"password\":\"short\",\"duckCharacter\":0,\"knownAs\":\"X\"}')",
+      "Bash(curl -s -w '\\\\nHTTP %{http_code}' -X POST http://localhost:5115/api/auth/login -H 'Content-Type: application/json' -d '{\"email\":\"test@duckyeq.com\",\"password\":\"wrongpass\"}')",
+      "Bash(curl -s -w \"\\\\nHTTP %{http_code}\" http://localhost:5115/api/user/profile)",
+      "Bash(pkill -f \"dotnet run\")",
+      "PowerShell(Stop-Process -Force)"
     ]
   }
 }

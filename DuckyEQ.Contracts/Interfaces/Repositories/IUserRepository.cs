@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DuckyEQ.Domain.Entities;
+using DuckyEQ.Domain.Enums;
 
 namespace DuckyEQ.Contracts.Interfaces.Repositories
 {
@@ -16,6 +17,7 @@ namespace DuckyEQ.Contracts.Interfaces.Repositories
         Task<User> CreateAsync(User user);
         Task UpdateAsync(User user);
         Task UpdateKnownAsAsync(Guid userId, string knownAs);
+        Task UpdateDuckCharacterAsync(Guid userId, DuckCharacter character);
 
     }
 }

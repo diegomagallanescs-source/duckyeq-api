@@ -1,5 +1,6 @@
 using DuckyEQ.Contracts.Interfaces.Repositories;
 using DuckyEQ.Contracts.Interfaces.Services;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace DuckyEQ.Services.Utilities;
 
@@ -19,16 +20,21 @@ public class UsernameGenerator : IUsernameGenerator
         "Duckling", "Flapper", "Crest", "Brook", "Wader", "Tufter", "Puddle", "Flier", "Plover", "Dabbler"
     ];
 
-    private readonly IUserRepository _userRepo;
+    // IServiceScopeFactory lets this Singleton create short-lived scopes to
+    // resolve the Scoped IUserRepository without a captive dependency.
+    private readonly IServiceScopeFactory _scopeFactory;
     private readonly Random _random = new();
 
-    public UsernameGenerator(IUserRepository userRepo)
+    public UsernameGenerator(IServiceScopeFactory scopeFactory)
     {
-        _userRepo = userRepo;
+        _scopeFactory = scopeFactory;
     }
 
     public async Task<string> GenerateUniqueAsync()
     {
+        using var scope = _scopeFactory.CreateScope();
+        var userRepo = scope.ServiceProvider.GetRequiredService<IUserRepository>();
+
         for (int i = 0; i < 15; i++)
         {
             var adj = Adjectives[_random.Next(Adjectives.Length)];
@@ -36,7 +42,7 @@ public class UsernameGenerator : IUsernameGenerator
             var digits = _random.Next(0, 10000).ToString("D4");
             var username = $"{adj}{noun}{digits}";
 
-            if (!await _userRepo.IsUsernameTakenAsync(username))
+            if (!await userRepo.IsUsernameTakenAsync(username))
                 return username;
         }
 

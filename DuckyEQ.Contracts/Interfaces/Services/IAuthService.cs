@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using DuckyEQ.Contracts.DTOs;
 using DuckyEQ.Contracts.Models;
+using DuckyEQ.Domain.Enums;
 
 namespace DuckyEQ.Contracts.Interfaces.Services
 {
@@ -13,8 +14,9 @@ namespace DuckyEQ.Contracts.Interfaces.Services
         Task<AuthResult> RegisterAsync(RegisterRequest request);
         Task<AuthResult> LoginAsync(LoginRequest request);
         Task<bool> VerifyEmailAsync(string token);
-        // Re-issues JWT with updated KnownAs claim after DB save
+        Task<UserProfileDto> GetProfileAsync(Guid userId);
         Task<AuthResult> UpdateKnownAsAsync(Guid userId, string knownAs);
+        Task UpdateDuckCharacterAsync(Guid userId, DuckCharacter character);
 
     }
 }
