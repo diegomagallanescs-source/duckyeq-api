@@ -18,6 +18,7 @@ namespace DuckyEQ.Contracts.Interfaces.Repositories
         Task UpdateAsync(User user);
         Task UpdateKnownAsAsync(Guid userId, string knownAs);
         Task UpdateDuckCharacterAsync(Guid userId, DuckCharacter character);
+        Task<IReadOnlyList<User>> SearchByUsernameAsync(string prefix, Guid excludeUserId, int limit = 20);
 
     }
 }

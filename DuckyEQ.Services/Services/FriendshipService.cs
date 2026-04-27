@@ -94,6 +94,23 @@ public class FriendshipService : IFriendshipService
         return detail;
     }
 
+    public async Task<IReadOnlyList<UserSearchResultDto>> SearchUsersAsync(Guid currentUserId, string prefix)
+    {
+        var users = await _userRepo.SearchByUsernameAsync(prefix, currentUserId);
+        var result = new List<UserSearchResultDto>();
+
+        foreach (var u in users)
+        {
+            var friendship = await _friendshipRepo.GetBetweenUsersAsync(currentUserId, u.Id);
+            var equipped = await _inventoryRepo.GetEquippedItemsAsync(u.Id);
+            result.Add(new UserSearchResultDto(
+                u.Id, u.Username, u.KnownAs, u.DuckCharacter,
+                equipped, friendship?.Status));
+        }
+
+        return result;
+    }
+
     private static FriendshipDto ToDto(Friendship f) =>
         new(f.Id, f.RequesterId, f.AddresseeId, f.Status, f.CreatedAt);
 }

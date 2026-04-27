@@ -26,6 +26,10 @@ namespace DuckyEQ.Contracts.Interfaces.Services
         Task<FriendDetailDto> GetFriendDetailAsync(
             Guid currentUserId, Guid friendUserId);
 
+        // Prefix LIKE search — includes ExistingRelationship relative to currentUserId
+        Task<IReadOnlyList<UserSearchResultDto>> SearchUsersAsync(
+            Guid currentUserId, string prefix);
+
     }
 }
 

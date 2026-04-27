@@ -29,4 +29,7 @@ public class FriendsBehavior
 
     public Task<FriendDetailDto> GetFriendDetailAsync(Guid currentUserId, Guid friendUserId) =>
         _friendshipService.GetFriendDetailAsync(currentUserId, friendUserId);
+
+    public Task<IReadOnlyList<UserSearchResultDto>> SearchUsersAsync(Guid currentUserId, string prefix) =>
+        _friendshipService.SearchUsersAsync(currentUserId, prefix);
 }

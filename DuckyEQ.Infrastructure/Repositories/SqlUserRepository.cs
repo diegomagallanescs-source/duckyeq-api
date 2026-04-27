@@ -49,4 +49,10 @@ public class SqlUserRepository : IUserRepository
             .Where(u => u.Id == userId)
             .ExecuteUpdateAsync(s => s.SetProperty(u => u.DuckCharacter, character));
     }
+
+    public async Task<IReadOnlyList<User>> SearchByUsernameAsync(string prefix, Guid excludeUserId, int limit = 20) =>
+        await _db.Users
+            .Where(u => u.Username.StartsWith(prefix) && u.Id != excludeUserId)
+            .Take(limit)
+            .ToListAsync();
 }
